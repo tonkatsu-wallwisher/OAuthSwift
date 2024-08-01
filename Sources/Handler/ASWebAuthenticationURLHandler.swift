@@ -6,12 +6,12 @@
 //  Copyright © 2019 Dongri Jin, Marchand Eric. All rights reserved.
 //
 
-#if targetEnvironment(macCatalyst) || os(iOS)
+#if targetEnvironment(macCatalyst) || os(iOS) || os(visionOS)
 
 import AuthenticationServices
 import Foundation
 
-@available(iOS 13.0, macCatalyst 13.0, *)
+@available(iOS 13.0, macCatalyst 13.0, visionOS 1.0, *)
 open class ASWebAuthenticationURLHandler: OAuthSwiftURLHandlerType {
     var webAuthSession: ASWebAuthenticationSession!
     let prefersEphemeralWebBrowserSession: Bool
@@ -54,7 +54,7 @@ open class ASWebAuthenticationURLHandler: OAuthSwiftURLHandlerType {
     }
 }
 
-@available(iOS 13.0, macCatalyst 13.0, *)
+@available(iOS 13.0, macCatalyst 13.0, visionOS 1.0, *)
 extension ASWebAuthenticationURLHandler {
     static func isCancelledError(domain: String, code: Int) -> Bool {
         return domain == ASWebAuthenticationSessionErrorDomain &&
